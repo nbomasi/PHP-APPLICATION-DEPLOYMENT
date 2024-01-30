@@ -101,9 +101,14 @@ Now browse the following local Ip
 
 http://192.168.56.14
 
+
+
 ![website-page1](Images/php1.png)
 
+
+
 ![website-page2](Images/php2.png)
+
 
 
 ## SECOND WEBSITE
@@ -144,7 +149,11 @@ Then reload the web page http://192.168.56.14 and get the following output:
 
 ![php-web1](/Images/php-part2-1.png)
 
+
+
 ![php-web2](/Images/php-part2-2.png)
+
+
 
 
 For automation please visit [project-automationfile](../Automation).
