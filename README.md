@@ -103,11 +103,12 @@ http://192.168.56.14
 
 
 
+![website-page2](Images/php2.png)
+
+
+
 ![website-page1](Images/php1.png)
 
-
-
-![website-page2](Images/php2.png)
 
 
 
