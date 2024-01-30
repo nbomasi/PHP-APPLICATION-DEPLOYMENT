@@ -22,7 +22,9 @@ sudo systemctl enable mariadb
 ```
 
 #restore the dump file for the application
-```sudo mysqladmin -u root password "$DATABASE_PASS"
+
+```markdown
+sudo mysqladmin -u root password "$DATABASE_PASS"
 sudo mysql -u root -p"$DATABASE_PASS" -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')"
 sudo mysql -u root -p"$DATABASE_PASS" -e "DELETE FROM mysql.user WHERE User=''"
 sudo mysql -u root -p"$DATABASE_PASS" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'"
@@ -30,19 +32,22 @@ sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"
 sudo mysql -u root -p"$DATABASE_PASS" -e "create database tooling"
 sudo mysql -u root -p"$DATABASE_PASS" -e "create user'webaccess'@'%' identified by 'admin123';"
 sudo mysql -u root -p"$DATABASE_PASS" -e "grant all privileges on tooling.* TO 'webaccess'@'%' identified by 'admin123'"
-sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"```
+sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"
+```
 
-# Restart mariadb-server
-```sudo systemctl restart mariadb```
+#Restart mariadb-server
 
-
+```markdown
+sudo systemctl restart mariadb
+```
 #starting the firewall and allowing the mariadb to access from port no. 3306
-```sudo systemctl start firewalld
+
+sudo systemctl start firewalld
 sudo systemctl enable firewalld
 sudo firewall-cmd --get-active-zones
 sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent
 sudo firewall-cmd --reload
-sudo systemctl restart mariadb```
+sudo systemctl restart mariadb
 
 ## SETTING UP THE WEB APPLICATION ON CENTOS SERVER
 
@@ -50,7 +55,8 @@ DATABASE_PASS='admin123'
 
 This script installs and configure apache webserver for tooling website
 
-```sudo yum update -y
+```markdown
+sudo yum update -y
 
 yum install epel-release -y
 
@@ -86,7 +92,8 @@ sudo sed -i 's/webaccess/192.168.56.20/1' /var/www/html/functions.php
 
 sudo sed -i 's/admin/webaccess/; s/admin/admin123/' /var/www/html/functions.php 
 
-sudo systemctl restart httpd```
+sudo systemctl restart httpd
+```
 
 Now browse the following local Ip
 
@@ -104,11 +111,14 @@ following [repository](https://github.com/darey-devops/tooling.git)
 
 Only the following will be edited on the db server:
 
-```sudo mysql -u root -p"$DATABASE_PASS" -e "create database tooling"
+```markdown
+sudo mysql -u root -p"$DATABASE_PASS" -e "create database tooling"
 sudo mysql -u root -p"$DATABASE_PASS" -e "create user'boma'@'%' identified by 'admin123';"
 sudo mysql -u root -p"$DATABASE_PASS" -e "grant all privileges on tooling.* TO 'boma'@'%' identified by 'admin123'"
-sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"```
+sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"
+```
 
+```markdown
 echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
 
 cd tooling
@@ -117,13 +127,16 @@ cp html /var/www/
 
 cd /var/www/html/
 
-vi .env
+vi .env 
+```
 
 ![db-credential](../Images/db-credentials.png)
 
 Please note that before editing, you must have created the credentials in your db, in my case, I used my credentials above.
 
+```markdown
 sudo systemctl restart httpd
+```
 
 Then reload the web page http://192.168.56.14 and get the following output:
 
