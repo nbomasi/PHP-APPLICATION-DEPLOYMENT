@@ -101,9 +101,9 @@ Now browse the following local Ip
 
 http://192.168.56.14
 
-![website-page1](../Images/php1.png)
+![website-page1](Images/php1.png)
 
-![website-page2](../Images/php2.png)
+![website-page2](Images/php2.png)
 
 
 ## SECOND WEBSITE
@@ -132,7 +132,7 @@ cd /var/www/html/
 vi .env 
 ```
 
-![db-credential](../Images/db-credentials.png)
+![db-credential](/Images/db-credentials.png)
 
 Please note that before editing, you must have created the credentials in your db, in my case, I used my credentials above.
 
@@ -142,9 +142,9 @@ sudo systemctl restart httpd
 
 Then reload the web page http://192.168.56.14 and get the following output:
 
-![php-web1](../Images/php-part2-1.png)
+![php-web1](/Images/php-part2-1.png)
 
-![php-web2](../Images/php-part2-2.png)
+![php-web2](/Images/php-part2-2.png)
 
 
 For automation please visit [project-automationfile](../Automation).
