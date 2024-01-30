@@ -16,11 +16,11 @@ Vagrant.configure("2") do |config|
     end
     
   ### Memcache vm  #### 
-    config.vm.define "mc01" do |app01|
-      app01.vm.box = "eurolinux-vagrant/centos-stream-9"
-      app01.vm.hostname = "mc01"
-      app01.vm.network "private_network", ip: "192.168.56.14"
-      app01.vm.provider "virtualbox" do |vb|
+    config.vm.define "mc01" do |web01|
+      web01.vm.box = "eurolinux-vagrant/centos-stream-9"
+      web01.vm.hostname = "mc01"
+      web01.vm.network "private_network", ip: "192.168.56.14"
+      web01.vm.provider "virtualbox" do |vb|
        vb.memory = "600"
      end
     end
@@ -36,14 +36,14 @@ Vagrant.configure("2") do |config|
     # end
     
   ### tomcat vm ###
-    # config.vm.define "app01" do |app01|
-    #   app01.vm.box = "eurolinux-vagrant/centos-stream-9"
-    #   app01.vm.hostname = "app01"
-    #   app01.vm.network "private_network", ip: "192.168.56.12"
-    #   app01.vm.provider "virtualbox" do |vb|
-    #    vb.memory = "800"
-    #  end
-    # end
+    config.vm.define "web01" do |web01|
+      web01.vm.box = "eurolinux-vagrant/centos-stream-9"
+      web01.vm.hostname = "web01"
+      web01.vm.network "private_network", ip: "192.168.56.12"
+      web01.vm.provider "virtualbox" do |vb|
+       vb.memory = "600"
+     end
+    end
      
     
   ### Nginx VM ###

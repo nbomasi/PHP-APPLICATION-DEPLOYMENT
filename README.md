@@ -3,17 +3,23 @@
 *This is a documentation page that guide us through the manual deployment process of a PHP 3-tier (tooling website) apllication locally using VAGRANT on virtual box provider*
 
 ## INSTALLING AND CONFIGURING MARIADB SERVER
+
 DATABASE_PASS='admin123'
-```sudo yum update -y
+
+```markdown
+sudo yum update -y
 sudo yum install epel-release -y
 sudo yum install git zip unzip -y
-sudo yum install mariadb-server -y```
+sudo yum install mariadb-server -y
+```
 
 
 ***starting & enabling mariadb-server***
 
-```sudo systemctl start mariadb
-sudo systemctl enable mariadb```
+```markdown
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+```
 
 #restore the dump file for the application
 ```sudo mysqladmin -u root password "$DATABASE_PASS"
