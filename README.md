@@ -122,7 +122,7 @@ Only the following will be edited on the db server:
 ```markdown
 sudo mysql -u root -p"$DATABASE_PASS" -e "create database tooling"
 sudo mysql -u root -p"$DATABASE_PASS" -e "create user'boma'@'%' identified by 'admin123';"
-sudo mysql -u root -p"$DATABASE_PASS" -e "grant all privileges on tooling.* TO 'boma'@'%' identified by 'admin123'"
+sudo mysql -u root -p"$DATABASE_PASS" -e "grant all privileges on toolingdb.* TO 'boma'@'%' identified by 'admin123'"
 sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"
 ```
 
@@ -151,12 +151,9 @@ Then reload the web page http://192.168.56.14 and get the following output:
 ![php-web1](/Images/php-part2-1.png)
 
 
-
 ![php-web2](/Images/php-part2-2.png)
 
 
-
-
-For automation please visit [project-automationfile](../Automation).
+For automation please visit [project-automationfile](Automation)
 
 Please note that only the part 1 of the project is automated.
